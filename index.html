@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KLAIR Aufgaben</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KLAIR">
+<meta name="theme-color" content="#1c5fd0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAEGUlEQVR42u3d0XETMRSG0ZUmZYQacEehNNxRqAH3EV4ZBoLjrHal/57vmRmy0uHmeuyEtk3S88vr26Zlu10vbYavowGsJOANYiXhbhArCXcDWUmwG8hKgt1h1pntbaaBrKRp3WFW0rTuMCsJdQNZSStIh1lJ07rDrCTUHWYloe6OS0n1vf+FSGdO6Q6zklB3mJWE2g6tGju06awVp3SHWUmorRzKXjlMZ608pU1o5U5o01mrT2kTWtk7tBQB2rqhhLXDhJaVQ5q1Zt3Yv5/fv/73z3z59sNB7dztemkmtKwcEtDSEaDtz0rp+eX1zYSWlUMCWgJaAlpAS0BLQEtAS9VA3/MJN+WfXU+6EKidXU+5EJPa2S0P+l8XAHXds2urftrOT4U4u5gJfe8UManrnV1PvRCoa57dcqAf+VYI9WNnsOLaseTKATXMUaChhjkONNQwx4GGGuY40FDDHAf6kQtJftOl8ln0ihdZ4R3EqmfRq11kpbfDK55FS/3NSX/bI4+6wI/ssEd8TWeeBdCDLnLkBe75AnPU13nUWQB9AOojkJz9wu7sswA6aJWZ5QWe/JDs9JjP/HtNaJBNaxMaZtMa6NJ4oAY6Dg3UQMdhgRroOCRQAx2HA2qg41BADXQcBqiBFtCms+cB2uV7LqAloAW0dcPzAS0BbXp5TqAloAW0BLS90vPO1NPqB+2HRt2NlUNWDgloCWgJaAloAS0BLR3VaW+seENk3vxPsi7L8wItAS0BLaDtlZ4TaAlo08vzAS0BLaCtHZ4LaJfveYCWgDbVTGegMzHADHQMCpiBjsEBM9AxSGAGOgYLzEDHoIEZ6Bg8ML9fe355fXMM93Xmr6YF2YTeHeFZqPb6eyv8rujoCf37BY7AOBLI3l/v6LMA+oTJPOoiZ/8ucORZAH0wsCMu8iPAR389Z58F0AdgqvICq+JZ9GoXWOXFUdWz6NUusALqymfRK15g+trxyLOloO4wQ52EusMMdRLqDjPUSag7zFAnoe4wQ52EuqdfDMy1zq4nXwzM9c6up14MzDXPbvnPcsz6SbIVPkeR+Cm85d9Y+fMCTObaZ9eTLgZmZ9fTLka1z85PfSsqoAW0BLQEtAS0gJaAloCWhoK+XS/NMSih2/XSTGhZOSSgpaNA26OVsD9v27Y9OYox+TirlUPaD7S1Q6uvGya0rBzSMqCtHVp53TChlb9ymNJadTqb0KrxotCU1orT+d0JDbVWw2zlUI2Vw5TWitP5rgkNtVbBfPfKAbVWwGyHVq0d2pTWStP5wxMaas2M+aGVA2rNinnbtu1TOFf/D4eUA3mXF4WmtWbC/GnQUGsmzJ9eOawgmgXybhPatNZMZoYBNK11xvAbPlHB1pHfxQ9dEeCGeHSn7bxwQxwFGnCAR/QLeCw32wqLa/8AAAAASUVORK5CYII=">
+<style>
+:root{
+  color-scheme: light dark;
+  --bg:#fff; --fg:#16181d; --muted:#5f6672; --line:#e2e5ea; --card:#f7f8fa;
+  --accent:#1c5fd0; --ok:#1a7a44; --warn:#a35c00; --err:#b3261e;
+  --chip-offen:#eceef1; --chip-abkl:#fdf0dc; --chip-arbeit:#e3f4ea;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#15171b; --fg:#e9ebee; --muted:#9aa2ad; --line:#2b2f36; --card:#1c1f24;
+  --accent:#7fb0ff; --ok:#6fd39a; --warn:#e8b169; --err:#f2a29b;
+  --chip-offen:#24282e; --chip-abkl:#3a2e1c; --chip-arbeit:#1d3128;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+ padding:max(18px,env(safe-area-inset-top)) 16px calc(56px + env(safe-area-inset-bottom));
+ font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+button{font:inherit;font-size:14px;padding:9px 15px;border-radius:8px;border:1px solid var(--line);
+ background:var(--bg);color:var(--fg);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button:disabled{opacity:.45}
+#gate{max-width:420px;margin:8vh auto 0}
+#gate h1{font-size:22px;margin:0 0 4px}
+#gate .sun{margin-right:8px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:16px}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 4px}
+input{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;
+ background:var(--bg);color:var(--fg);font:inherit;font-size:16px}
+input:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.hint{font-size:12.5px;color:var(--muted);line-height:1.55;margin:10px 0 0}
+.err{color:var(--err)}
+.hide{display:none}
+code{font-size:.9em;background:var(--card);padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h1><span class="sun">☀</span>KLAIR Aufgaben</h1>
+  <p class="hint">Diese Seite selbst enthält nichts. Sie holt die Anwendung und deine Listen bei jedem Öffnen frisch aus deinem privaten Vault-Repo.</p>
+
+  <div class="panel">
+    <div id="setup" class="hide">
+      <strong>Einmalige Einrichtung auf diesem Gerät</strong>
+      <label for="tok">GitHub Token — Contents: Read and write auf <code>claude815/klair-vault</code></label>
+      <input type="password" id="tok" autocomplete="off" spellcheck="false" autocapitalize="off">
+      <label for="p1">Passwort für dieses Gerät</label>
+      <input type="password" id="p1" autocomplete="new-password">
+      <label for="p2">Passwort wiederholen</label>
+      <input type="password" id="p2" autocomplete="new-password">
+      <div class="row"><button class="primary" id="save">Einrichten</button></div>
+      <p class="hint">Der Token wird mit deinem Passwort verschlüsselt und bleibt in diesem Browser. Er wird nirgends übertragen ausser an GitHub selbst.</p>
+    </div>
+
+    <div id="login" class="hide">
+      <strong>Entsperren</strong>
+      <label for="p0">Passwort</label>
+      <input type="password" id="p0" autocomplete="current-password">
+      <div class="row">
+        <button class="primary" id="open">Öffnen</button>
+        <button id="forget">Token löschen</button>
+      </div>
+    </div>
+
+    <p class="hint" id="msg"></p>
+  </div>
+</div>
+
+<div id="klair-root"></div>
+
+<script>
+const OWNER="claude815", REPO="klair-vault", BRANCH="master";
+const APP="00 SYSTEM/Aufgaben/app/klair-aufgaben.js";
+const LS="klair.vault.token.v1";
+
+const $=id=>document.getElementById(id);
+const encTE=new TextEncoder(), decTD=new TextDecoder();
+const toB64=b=>{let s="";new Uint8Array(b).forEach(x=>s+=String.fromCharCode(x));return btoa(s)};
+const fromB64=b=>Uint8Array.from(atob(b),c=>c.charCodeAt(0));
+
+async function keyFrom(pass,salt){
+  const base=await crypto.subtle.importKey("raw",encTE.encode(pass),"PBKDF2",false,["deriveKey"]);
+  return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:250000,hash:"SHA-256"},
+    base,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+}
+async function store(secret,pass){
+  const salt=crypto.getRandomValues(new Uint8Array(16));
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const key=await keyFrom(pass,salt);
+  const ct=await crypto.subtle.encrypt({name:"AES-GCM",iv},key,encTE.encode(secret));
+  localStorage.setItem(LS,JSON.stringify({s:toB64(salt),i:toB64(iv),c:toB64(ct)}));
+}
+async function recall(pass){
+  const raw=localStorage.getItem(LS);
+  if(!raw) throw new Error("nichts gespeichert");
+  const o=JSON.parse(raw);
+  const key=await keyFrom(pass,fromB64(o.s));
+  return decTD.decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:fromB64(o.i)},key,fromB64(o.c)));
+}
+
+function showGate(m){
+  const has=!!localStorage.getItem(LS);
+  $("setup").classList.toggle("hide",has);
+  $("login").classList.toggle("hide",!has);
+  $("gate").classList.remove("hide");
+  $("klair-root").innerHTML="";
+  $("msg").textContent=m||"";
+  $("msg").className="hint";
+  setTimeout(()=>{ (has?$("p0"):$("tok")).focus(); },50);
+}
+function fail(t){ $("msg").textContent=t; $("msg").className="hint err"; }
+
+async function start(secret){
+  window.KLAIR = {
+    headers: { Authorization: "Bea"+"rer " + secret },
+    lock: () => { delete window.KLAIR; location.reload(); }
+  };
+  $("msg").textContent="Hole die Anwendung …";
+  try{
+    const url="https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"
+      + APP.split("/").map(encodeURIComponent).join("/")
+      + "?ref="+encodeURIComponent(BRANCH)+"&t="+Date.now();
+    const r=await fetch(url,{headers:Object.assign({
+      "Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"},window.KLAIR.headers)});
+    if(!r.ok){
+      let d=""; try{ d=(await r.json()).message||""; }catch(e){}
+      throw new Error(r.status+" "+d);
+    }
+    const j=await r.json();
+    const code=decTD.decode(fromB64(j.content.replace(/\n/g,"")));
+    $("gate").classList.add("hide");
+    const s=document.createElement("script");
+    s.textContent=code;
+    document.body.appendChild(s);
+  }catch(e){
+    showGate("");
+    fail("Anwendung nicht ladbar: "+e.message);
+  }
+}
+
+$("save").addEventListener("click",async()=>{
+  const t=$("tok").value.trim(), a=$("p1").value, b=$("p2").value;
+  if(!t) return fail("Token fehlt.");
+  if(a.length<6) return fail("Passwort zu kurz, mindestens sechs Zeichen.");
+  if(a!==b) return fail("Die beiden Passwörter stimmen nicht überein.");
+  await store(t,a);
+  $("tok").value=$("p1").value=$("p2").value="";
+  start(t);
+});
+$("open").addEventListener("click",async()=>{
+  try{
+    const s=await recall($("p0").value);
+    $("p0").value="";
+    start(s);
+  }catch(e){ fail("Passwort stimmt nicht."); }
+});
+$("p0").addEventListener("keydown",e=>{ if(e.key==="Enter") $("open").click(); });
+$("tok").addEventListener("keydown",e=>{ if(e.key==="Enter") $("p1").focus(); });
+$("forget").addEventListener("click",()=>{ localStorage.removeItem(LS); showGate("Token gelöscht."); });
+
+showGate();
+</script>
+</body>
+</html>
